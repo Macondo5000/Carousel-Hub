@@ -47,21 +47,41 @@ export default function LinkedInEmbed({ embedCode, linkedinUrl }: LinkedInEmbedP
       if (!isLoaded) {
         setHasError(true)
       }
-    }, 10000) // 10秒超时
+    }, 8000) // 8秒超时
 
-    // 监听iframe加载
+    // 监听iframe加载事件
     const handleMessage = (event: MessageEvent) => {
       if (event.origin === 'https://www.linkedin.com') {
+        console.log('LinkedIn iframe loaded successfully')
         setIsLoaded(true)
         clearTimeout(timer)
       }
     }
 
+    // 监听iframe的load事件
+    const handleIframeLoad = () => {
+      console.log('iframe load event triggered')
+      // 给一点延迟让LinkedIn内容完全加载
+      setTimeout(() => {
+        setIsLoaded(true)
+        clearTimeout(timer)
+      }, 1000)
+    }
+
     window.addEventListener('message', handleMessage)
+    
+    // 监听所有iframe的load事件
+    const iframes = document.querySelectorAll('iframe[src*="linkedin.com"]')
+    iframes.forEach(iframe => {
+      iframe.addEventListener('load', handleIframeLoad)
+    })
 
     return () => {
       clearTimeout(timer)
       window.removeEventListener('message', handleMessage)
+      iframes.forEach(iframe => {
+        iframe.removeEventListener('load', handleIframeLoad)
+      })
     }
   }, [isLoaded])
 

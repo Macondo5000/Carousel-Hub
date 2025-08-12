@@ -5,16 +5,16 @@ import { CarouselData } from '@/types/carousel'
 export const sampleLinkedInPosts: CarouselData[] = [
   {
     id: '1',
-    title: 'AI研究前沿探索 - 深度学习新突破',
-    description: '探索最新AI研究趋势，了解深度学习在各个领域的创新应用',
-    author: 'Tech Innovator',
-    authorCompany: 'AI研究院',
+    title: 'LinkedIn精彩内容分享 - 真实案例展示',
+    description: '查看这个真实的LinkedIn帖子，展示我们平台的嵌入效果',
+    author: 'LinkedIn User',
+    authorCompany: 'Professional Network',
     authorAvatar: '/api/placeholder/40/40',
     category: 'technology',
     industry: 'tech',
-    tags: ['AI研究', '深度学习', '技术创新'],
-    linkedinUrl: 'https://www.linkedin.com/posts/example-1',
-    embedCode: '', // 暂时留空，等待真实LinkedIn帖子
+    tags: ['LinkedIn', '内容分享', '真实案例'],
+    linkedinUrl: 'https://www.linkedin.com/posts/activity-7354165331696783360',
+    embedCode: '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7354165331696783360?collapsed=1" height="567" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>',
     likes: 256,
     comments: 18,
     shares: 32,
