@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import CarouselCard from '@/components/CarouselCard'
 import { CarouselData } from '@/types/carousel'
+import { sampleLinkedInPosts } from '@/data/samplePosts'
 import { FireIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/outline'
 
 export default function TrendingPage() {
@@ -11,8 +12,18 @@ export default function TrendingPage() {
   const [loading, setLoading] = useState(true)
   const [timeRange, setTimeRange] = useState('week')
 
-  // 真实LinkedIn热门帖子数据
-  const mockTrendingCarousels: CarouselData[] = [
+  // 使用多样化的示例LinkedIn帖子数据，避免重复嵌入
+  const mockTrendingCarousels: CarouselData[] = sampleLinkedInPosts.slice(0, 6).map((post, index) => ({
+    ...post,
+    id: `trending-${post.id}`,
+    featured: true,
+    likes: post.likes + Math.floor(Math.random() * 100), // 添加一些随机性
+    createdAt: new Date(Date.now() - index * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+  }))
+
+  // 备注：之前的旧数据已被替换为上面的多样化数据
+  /*
+  const oldMockTrendingCarousels: CarouselData[] = [
     {
       id: 'trending-1',
       title: 'Why Wide Research? - 热门AI研究话题',
@@ -120,8 +131,9 @@ export default function TrendingPage() {
       shares: 12,
       createdAt: '2024-01-08',
       featured: false,
-    },
-  ]
+    }
+  ];
+  */
 
   useEffect(() => {
     // 模拟API调用延迟

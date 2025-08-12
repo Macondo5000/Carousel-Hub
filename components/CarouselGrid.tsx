@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import CarouselCard from './CarouselCard'
 import { CarouselData } from '@/types/carousel'
+import { sampleLinkedInPosts } from '@/data/samplePosts'
 
 interface CarouselGridProps {
   searchQuery: string
@@ -20,8 +21,8 @@ export default function CarouselGrid({
   const [carousels, setCarousels] = useState<CarouselData[]>([])
   const [loading, setLoading] = useState(true)
 
-  // 真实LinkedIn帖子数据
-  const mockCarousels: CarouselData[] = [
+  // 使用多样化的示例LinkedIn帖子数据，避免重复嵌入同一个帖子
+  const mockCarousels: CarouselData[] = sampleLinkedInPosts.concat([
     {
       id: '1',
       title: 'Why Wide Research? - Manus AI的深度研究',
@@ -129,8 +130,8 @@ export default function CarouselGrid({
       shares: 12,
       createdAt: '2024-01-10',
       featured: true,
-    },
-  ]
+    }
+  ])
 
   useEffect(() => {
     // 模拟API调用延迟

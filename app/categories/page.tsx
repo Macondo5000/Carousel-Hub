@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from '@/components/Header'
 import CarouselCard from '@/components/CarouselCard'
 import { CarouselData } from '@/types/carousel'
+import { sampleLinkedInPosts } from '@/data/samplePosts'
 import { 
   TagIcon, 
   ChartBarIcon, 
@@ -96,8 +97,8 @@ export default function CategoriesPage() {
     { id: 'consulting', name: '咨询', count: 29, color: 'bg-indigo-100 text-indigo-800' }
   ]
 
-  // 真实LinkedIn帖子数据
-  const mockCarousels: CarouselData[] = [
+  // 使用多样化的示例LinkedIn帖子数据
+  const mockCarousels: CarouselData[] = sampleLinkedInPosts.concat([
     {
       id: 'cat-1',
       title: 'Why Wide Research? - 技术趋势分析',
@@ -205,8 +206,8 @@ export default function CategoriesPage() {
       shares: 12,
       createdAt: '2024-01-10',
       featured: false,
-    },
-  ]
+    }
+  ])
 
   // 过滤内容
   const filteredCarousels = mockCarousels.filter((carousel) => {
