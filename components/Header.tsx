@@ -8,9 +8,6 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
-    { name: '首页', href: '/' },
-    { name: '分类浏览', href: '/categories' },
-    { name: '热门内容', href: '/trending' },
     { name: '提交内容', href: '/submit' },
     { name: '关于我们', href: '/about' },
   ]
