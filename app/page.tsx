@@ -2,63 +2,38 @@
 
 import { useState } from 'react'
 import Header from '@/components/Header'
+import CategoryToggle from '@/components/CategoryToggle'
 import CarouselGrid from '@/components/CarouselGrid'
-import FilterPanel from '@/components/FilterPanel'
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [selectedIndustry, setSelectedIndustry] = useState('all')
-  const [selectedSort, setSelectedSort] = useState('latest')
-
-  const handleSearch = (query: string) => {
-    setSearchQuery(query)
-  }
-
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category)
-  }
-
-  const handleIndustryChange = (industry: string) => {
-    setSelectedIndustry(industry)
-  }
-
-  const handleSortChange = (sort: string) => {
-    setSelectedSort(sort)
-  }
+  const [selectedCategory, setSelectedCategory] = useState<'enterprise' | 'personal'>('enterprise')
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-background">
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            发现LinkedIn上最优秀的Carousel内容
+        {/* Hero Section */}
+        <div className="text-center mb-12 mt-16">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-foreground to-gray-400 bg-clip-text text-transparent mb-4">
+            Best LinkedIn Carousel designs
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            为市场营销人员和设计师提供灵感的聚合平台，探索来自各行各业的优秀内容
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            An inspiration hub for marketers and designers.
           </p>
+          
+          {/* Category Toggle */}
+          <CategoryToggle
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
         </div>
 
+        {/* Content Area */}
         <div className="mt-8">
-          <FilterPanel 
-            selectedCategory={selectedCategory}
-            selectedIndustry={selectedIndustry}
-            selectedSort={selectedSort}
-            onCategoryChange={handleCategoryChange}
-            onIndustryChange={handleIndustryChange}
-            onSortChange={handleSortChange}
-          />
-          
-          <CarouselGrid 
-            searchQuery={searchQuery}
-            selectedCategory={selectedCategory}
-            selectedIndustry={selectedIndustry}
-            selectedSort={selectedSort}
-          />
+          <CarouselGrid selectedCategory={selectedCategory} />
         </div>
       </div>
     </main>
   )
-} 
+}

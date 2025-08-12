@@ -5,9 +5,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'LinkedIn Carousel Hub - 营销设计灵感聚合平台',
-  description: '发现和分享LinkedIn上最优秀的Carousel内容，为市场营销人员和设计师提供灵感',
-  keywords: 'LinkedIn, Carousel, 营销, 设计, 灵感, 社交媒体',
+  title: 'LinkedIn Carousel Hub - Marketing & Design Inspiration Platform',
+  description: 'Discover and share the best LinkedIn Carousel content to inspire marketers and designers',
+  keywords: 'LinkedIn, Carousel, Marketing, Design, Inspiration, Social Media',
 }
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="zh-CN">
+    <html lang="en" className="dark">
       <head>
         <script 
           src="https://platform.linkedin.com/in.js" 

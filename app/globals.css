@@ -1,25 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+  --background: #1a1a1a;
+  --foreground: #fafafa;
+  --card: #1a1a1a;
+  --card-foreground: #fafafa;
+  --primary: #36EB97;
+  --primary-foreground: #000000;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --accent: #262626;
+  --accent-foreground: #fafafa;
+  --border: #404040;
+  --input: #262626;
+  --ring: #525252;
+  --radius: 0.625rem;
+}
 
 @layer base {
-  html {
-    font-family: 'Inter', system-ui, sans-serif;
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 }
 
 @layer components {
   .carousel-card {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .carousel-card:hover {
+    background-color: var(--accent);
+    opacity: 0.8;
   }
   
   .btn-primary {
-    @apply bg-linkedin-500 hover:bg-linkedin-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .btn-primary:hover {
+    opacity: 0.9;
   }
   
   .btn-secondary {
-    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
   }
-} 
+  
+  .btn-secondary:hover {
+    opacity: 0.8;
+  }
+}
