@@ -18,7 +18,27 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <head>
-        <script src="https://platform.linkedin.com/in.js" type="text/javascript"></script>
+        <script 
+          src="https://platform.linkedin.com/in.js" 
+          type="text/javascript"
+          async
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('message', function(event) {
+                if (event.origin !== 'https://www.linkedin.com') return;
+                
+                if (event.data.type === 'resize') {
+                  const iframe = document.querySelector('iframe[src*="linkedin.com/embed"]');
+                  if (iframe && event.data.height) {
+                    iframe.style.height = event.data.height + 'px';
+                  }
+                }
+              });
+            `
+          }}
+        />
       </head>
       <body className={inter.className}>
         {children}

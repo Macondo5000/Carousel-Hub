@@ -1,6 +1,7 @@
 'use client'
 
 import { CarouselData } from '@/types/carousel'
+import LinkedInEmbed from './LinkedInEmbed'
 
 interface CarouselCardProps {
   carousel: CarouselData
@@ -11,20 +12,10 @@ export default function CarouselCard({ carousel }: CarouselCardProps) {
     <div className="carousel-card overflow-hidden">
       {/* LinkedIn嵌入式帖子 */}
       <div className="p-4">
-        <div className="relative">
-          <div 
-            className="w-full h-80 bg-gray-100 rounded-lg overflow-hidden"
-            dangerouslySetInnerHTML={{ __html: carousel.embedCode }}
-          />
-          
-          {/* 加载状态覆盖层 */}
-          <div className="absolute inset-0 bg-gray-100 rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-linkedin-500 mx-auto mb-2"></div>
-              <p className="text-sm text-gray-500">加载LinkedIn内容...</p>
-            </div>
-          </div>
-        </div>
+        <LinkedInEmbed 
+          embedCode={carousel.embedCode}
+          linkedinUrl={carousel.linkedinUrl}
+        />
       </div>
 
       {/* 跳转CTA */}
