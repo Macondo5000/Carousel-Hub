@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import CarouselCard from '@/components/CarouselCard'
 import { CarouselData } from '@/types/carousel'
-import { FireIcon, TrendingUpIcon, StarIcon } from '@heroicons/react/24/outline'
+import { FireIcon, ChartBarIcon, StarIcon } from '@heroicons/react/24/outline'
 
 export default function TrendingPage() {
   const [trendingCarousels, setTrendingCarousels] = useState<CarouselData[]>([])
@@ -186,7 +186,7 @@ export default function TrendingPage() {
         {/* 时间范围筛选 */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
           <div className="flex items-center space-x-4">
-            <TrendingUpIcon className="h-5 w-5 text-linkedin-500" />
+            <ChartBarIcon className="h-5 w-5 text-linkedin-500" />
             <span className="text-sm font-medium text-gray-900">热门时间范围</span>
             
             <div className="flex space-x-2">
