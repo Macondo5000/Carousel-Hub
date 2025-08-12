@@ -180,18 +180,13 @@ export default function CarouselGrid({
 
   return (
     <div>
-              <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center space-x-4">
-            <h2 className="text-2xl font-bold text-gray-900">
-              发现灵感 ({sortedCarousels.length})
-            </h2>
-            {searchQuery && (
-              <span className="text-sm text-gray-600">
-                搜索: "{searchQuery}"
-              </span>
-            )}
+        {searchQuery && (
+          <div className="mb-6">
+            <span className="text-sm text-gray-600">
+              搜索: "{searchQuery}"
+            </span>
           </div>
-        </div>
+        )}
 
       {sortedCarousels.length === 0 ? (
         <div className="text-center py-20">
