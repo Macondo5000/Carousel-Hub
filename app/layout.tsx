@@ -39,10 +39,10 @@ export default function RootLayout({
             `
           }}
         />
-        <script 
+                <script
           async 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2063448278280890"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
       </head>
       <body className={inter.className}>
