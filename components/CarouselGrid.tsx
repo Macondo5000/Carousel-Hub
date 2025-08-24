@@ -2,17 +2,18 @@
 
 import { useMemo } from 'react'
 import CarouselCard from './CarouselCard'
-import { CarouselData } from '@/types/carousel'
-import { sampleLinkedInPosts } from '@/data/samplePosts'
+import { usePosts } from '@/contexts/PostContext'
 
 interface CarouselGridProps {
   selectedCategory: 'enterprise' | 'personal'
 }
 
 export default function CarouselGrid({ selectedCategory }: CarouselGridProps) {
+  const { posts } = usePosts()
+  
   const filteredCarousels = useMemo(() => {
-    return sampleLinkedInPosts.filter(carousel => carousel.category === selectedCategory)
-  }, [selectedCategory])
+    return posts.filter(carousel => carousel.category === selectedCategory)
+  }, [posts, selectedCategory])
 
   if (filteredCarousels.length === 0) {
     return (
