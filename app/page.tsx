@@ -16,10 +16,10 @@ export default function Home() {
         {/* Hero Section */}
         <div className="text-center mb-12 mt-16">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-foreground to-gray-400 bg-clip-text text-transparent mb-4">
-            Best LinkedIn Carousel designs
+            LinkedIn Carousel Gallery
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            An inspiration hub for marketers and designers.
+            Discover the best carousel content for marketers and designers.
           </p>
           
           {/* Category Toggle */}

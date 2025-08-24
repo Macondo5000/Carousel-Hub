@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'LinkedIn Carousel Hub - Marketing & Design Inspiration Platform',
+  title: 'LinkedIn Carousel Gallery - Marketing & Design Inspiration Platform',
   description: 'Discover and share the best LinkedIn Carousel content to inspire marketers and designers',
   keywords: 'LinkedIn, Carousel, Marketing, Design, Inspiration, Social Media',
 }
@@ -38,6 +38,11 @@ export default function RootLayout({
               });
             `
           }}
+        />
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2063448278280890"
+          crossorigin="anonymous"
         />
       </head>
       <body className={inter.className}>
