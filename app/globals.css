@@ -68,4 +68,32 @@
   .btn-secondary:hover {
     opacity: 0.8;
   }
+
+  /* LinkedIn嵌入样式 - 禁用交互遮罩 */
+  .linkedin-embed-container {
+    position: relative;
+  }
+  
+  .linkedin-embed-container iframe {
+    pointer-events: none !important;
+    border: none !important;
+  }
+  
+  /* 禁用LinkedIn iframe内的所有交互效果 */
+  .linkedin-embed-container iframe::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* 隐藏LinkedIn的导航控件 */
+  .linkedin-embed-container iframe[src*="linkedin.com"] {
+    overflow: hidden !important;
+  }
 }

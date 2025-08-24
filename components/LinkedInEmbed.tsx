@@ -123,7 +123,7 @@ export default function LinkedInEmbed({ embedCode, linkedinUrl }: LinkedInEmbedP
         </div>
       )}
       <div 
-        className="w-full min-h-[450px] flex items-center justify-center overflow-hidden"
+        className="w-full min-h-[450px] flex items-center justify-center overflow-hidden linkedin-embed-container"
         dangerouslySetInnerHTML={{ 
           __html: embedCode.replace(
             /width="[^"]*"/g, 'width="100%"'
@@ -131,7 +131,19 @@ export default function LinkedInEmbed({ embedCode, linkedinUrl }: LinkedInEmbedP
             /height="[^"]*"/g, 'height="450"'
           ).replace(
             /style="[^"]*"/g, ''
-          ) + '<style>iframe { width: 100% !important; min-height: 450px !important; }</style>'
+          ) + `<style>
+            iframe { 
+              width: 100% !important; 
+              min-height: 450px !important; 
+              pointer-events: none !important;
+            }
+            .linkedin-embed-container {
+              pointer-events: none;
+            }
+            .linkedin-embed-container iframe {
+              pointer-events: none !important;
+            }
+          </style>`
         }}
         onLoad={() => setIsLoaded(true)}
       />
